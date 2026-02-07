@@ -46,37 +46,44 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 ml-auto"
+            className="md:hidden p-2 ml-auto z-50 relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden pb-6 border-b border-border bg-background/95 backdrop-blur-lg"
-          >
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
+      {/* Mobile Navigation - Full Screen Overlay */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          transition={{ type: 'tween', duration: 0.3 }}
+          className="md:hidden fixed inset-0 bg-background z-40 flex items-center justify-center"
+        >
+          <div className="flex flex-col items-center gap-8">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
                 <Link
-                  key={item.href}
                   to={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors py-2 text-lg"
+                  className="text-3xl font-bold text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

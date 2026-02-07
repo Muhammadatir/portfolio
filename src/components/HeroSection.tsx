@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export const HeroSection = () => {
   return (
@@ -55,22 +56,24 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <motion.a 
-              href="#projects" 
-              whileHover={{ scale: 1.1, rotate: 2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 h-11 rounded-md px-8 text-sm font-medium gradient-bg border-0 transition-colors animate-pulse-glow"
-            >
-              View Projects
-            </motion.a>
-            <motion.a 
-              href="#contact" 
-              whileHover={{ scale: 1.1, rotate: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 h-11 rounded-md px-8 text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-            >
-              Contact Me
-            </motion.a>
+            <Link to="/projects">
+              <motion.button
+                whileHover={{ scale: 1.1, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 h-11 rounded-md px-8 text-sm font-medium gradient-bg border-0 transition-colors animate-pulse-glow"
+              >
+                View Projects
+              </motion.button>
+            </Link>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.1, rotate: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 h-11 rounded-md px-8 text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                Contact Me
+              </motion.button>
+            </Link>
             <motion.a 
               href="/Muhammad_Taha_Atir_Resume.pdf" 
               download="Muhammad_Taha_Atir_Resume.pdf" 
