@@ -73,20 +73,14 @@ export const ProjectsSection = () => {
               animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.15, type: "spring", bounce: 0.5 }}
               whileHover={{ 
-                scale: 1.08, 
-                rotateZ: [0, -2, 2, -2, 0],
-                transition: { duration: 0.5 }
+                scale: 1.05,
+                transition: { duration: 0.3 }
               }}
               className="group gradient-border p-6 rounded-xl glow-card"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className={`p-3 rounded-lg ${project.color === 'primary' ? 'bg-primary/10' : 'bg-secondary/10'} group-hover:scale-110 transition-transform`}>
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                  >
-                    <Icon className={project.color === 'primary' ? 'text-primary' : 'text-secondary'} size={24} />
-                  </motion.div>
+                  <Icon className={project.color === 'primary' ? 'text-primary' : 'text-secondary'} size={24} />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">

@@ -60,14 +60,14 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden pb-6 border-b border-border"
+            className="md:hidden pb-6 border-b border-border bg-background/95 backdrop-blur-lg"
           >
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                  className="text-muted-foreground hover:text-foreground transition-colors py-2 text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
