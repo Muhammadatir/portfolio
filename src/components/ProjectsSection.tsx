@@ -39,7 +39,7 @@ const projects = [
     icon: Dumbbell,
     color: 'primary',
     github: 'https://github.com/Muhammadatir/FitnessNavigator.git',
-    demo: '',
+    demo: 'https://tahaatir.pythonanywhere.com/',
   },
 ];
 
